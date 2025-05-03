@@ -1,70 +1,111 @@
-# Getting Started with Create React App
+# Sistema de Gestión de Citas Médicas
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este es un sistema de gestión de citas médicas desarrollado con React + TypeScript para el frontend y Node.js + TypeScript para el backend.
 
-## Available Scripts
+## Características
 
-In the project directory, you can run:
+- Listado de citas médicas
+- Creación de nuevas citas
+- Actualización de citas existentes
+- Eliminación de citas
+- Cambio de estado de las citas (pendiente, confirmada, cancelada)
+- Interfaz responsiva y moderna
+- Base de datos SQLite para persistencia de datos
 
-### `npm start`
+## Tecnologías Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Frontend
+- React.js
+- TypeScript
+- Material-UI
+- React Router
+- Axios
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Backend
+- Node.js
+- Express
+- TypeScript
+- SQLite
+- Express Validator
 
-### `npm test`
+### Despliegue
+- Railway
+- Netlify
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Instalación y Configuración
 
-### `npm run build`
+```bash
+git clone https://github.com/angelmora2004/gestioncitasmedicasapp.git
+cd gestioncitasmedicasapp
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Backend
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1. Navegar al directorio del backend:
+```bash
+cd backend
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Instalar dependencias:
+```bash
+npm install
+```
 
-### `npm run eject`
+3. Iniciar el servidor en modo desarrollo:
+```bash
+npm run dev
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Frontend
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Navegar al directorio raíz del proyecto:
+```bash
+cd ..
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+2. Instalar dependencias:
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+3. Iniciar la aplicación:
+```bash
+npm start
+```
+> Asegurate de tener Node.js y npm instalados.
 
-## Learn More
+## Estructura del Proyecto
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+gestion-citas-medicas/
+├── backend/
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── database/
+│   │   ├── middlewares/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── app.ts
+│   │   └── database.ts
+│   ├── package.json
+│   └── tsconfig.json
+├── src/
+│   ├── components/
+│   │   ├── AppointmentForm.tsx
+│   │   ├── AppointmentList.tsx
+│   │   ├── Dashboard.tsx
+│   │   ├── Navbar.tsx
+│   │   └── Sidebar.tsx
+│   ├── App.tsx
+│   └── index.tsx
+├── package.json
+└── README.md
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## API Endpoints
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `GET /api/appointments` - Obtener todas las citas
+- `POST /api/appointments` - Crear una nueva cita
+- `PUT /api/appointments/:id` - Actualizar una cita existente
+- `DELETE /api/appointments/:id` - Eliminar una cita
+- `PATCH /api/appointments/:id/status` - Actualizar el estado de una cita
