@@ -12,6 +12,13 @@ Este es un sistema de gestión de citas médicas desarrollado con React + TypeSc
 - Interfaz responsiva y moderna
 - Base de datos SQLite para persistencia de datos
 
+### Preview  
+**Ligt Mode**
+![Captura de pantalla 2025-05-02 213558](https://github.com/user-attachments/assets/d9bdfa22-2bf1-49f4-b7f2-8554bb232f63)
+
+**Dark Mode**
+![Captura de pantalla 2025-05-02 213614](https://github.com/user-attachments/assets/832bd513-157e-423f-96a6-bc4cfe0ec4ff)
+
 ## Tecnologías Utilizadas
 
 ### Frontend
