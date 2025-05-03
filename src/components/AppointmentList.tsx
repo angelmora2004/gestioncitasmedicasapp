@@ -90,7 +90,7 @@ const AppointmentList: React.FC<AppointmentListProps> = ({ search, refreshCounts
   const fetchAppointments = async () => {
     try {
       setLoading(true);
-      const response = await axios.get('http://localhost:3001/api/appointments');
+      const response = await axios.get('https://gestioncitasmedicasapp-production.up.railway.app/api/appointments');
       setAppointments(response.data);
     } catch (error) {
       console.error('Error al obtener las citas:', error);
@@ -101,7 +101,7 @@ const AppointmentList: React.FC<AppointmentListProps> = ({ search, refreshCounts
 
   const handleStatusChange = async (id: number, newStatus: string) => {
     try {
-      await axios.patch(`http://localhost:3001/api/appointments/${id}/status`, {
+      await axios.patch(`https://gestioncitasmedicasapp-production.up.railway.app/api/appointments/${id}/status`, {
         status: newStatus
       });
       await fetchAppointments();
@@ -113,7 +113,7 @@ const AppointmentList: React.FC<AppointmentListProps> = ({ search, refreshCounts
 
   const handleDelete = async (id: number) => {
     try {
-      await axios.delete(`http://localhost:3001/api/appointments/${id}`);
+      await axios.delete(`https://gestioncitasmedicasapp-production.up.railway.app/api/appointments/${id}`);
       fetchAppointments();
       refreshCounts();
     } catch (error) {
@@ -123,7 +123,7 @@ const AppointmentList: React.FC<AppointmentListProps> = ({ search, refreshCounts
 
   const handleViewDetails = async (id: number) => {
     try {
-      const response = await axios.get(`http://localhost:3001/api/appointments/${id}`);
+      const response = await axios.get(`https://gestioncitasmedicasapp-production.up.railway.app/api/appointments/${id}`);
       setSelectedAppointment(response.data);
       setOpenViewDialog(true);
     } catch (error) {
@@ -133,7 +133,7 @@ const AppointmentList: React.FC<AppointmentListProps> = ({ search, refreshCounts
 
   const handleEditClick = async (id: number) => {
     try {
-      const response = await axios.get(`http://localhost:3001/api/appointments/${id}`);
+      const response = await axios.get(`https://gestioncitasmedicasapp-production.up.railway.app/api/appointments/${id}`);
       setEditAppointment(response.data);
       setOpenEditDialog(true);
     } catch (error) {
@@ -153,7 +153,7 @@ const AppointmentList: React.FC<AppointmentListProps> = ({ search, refreshCounts
     try {
       if (editAppointment.id) {
         // Actualiza los datos generales
-        await axios.put(`http://localhost:3001/api/appointments/${editAppointment.id}`, {
+        await axios.put(`https://gestioncitasmedicasapp-production.up.railway.app/api/appointments/${editAppointment.id}`, {
           patientName: editAppointment.patientName,
           doctorName: editAppointment.doctorName,
           appointmentDate: editAppointment.appointmentDate,
@@ -162,7 +162,7 @@ const AppointmentList: React.FC<AppointmentListProps> = ({ search, refreshCounts
 
         // Actualiza el estado por separado
         if (editAppointment.status) {
-          await axios.patch(`http://localhost:3001/api/appointments/${editAppointment.id}/status`, {
+          await axios.patch(`https://gestioncitasmedicasapp-production.up.railway.app/api/appointments/${editAppointment.id}/status`, {
             status: editAppointment.status
           });
         }

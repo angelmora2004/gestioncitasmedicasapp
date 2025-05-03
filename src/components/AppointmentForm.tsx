@@ -38,7 +38,7 @@ const AppointmentForm: React.FC = () => {
 
   const fetchAppointment = async () => {
     try {
-      const response = await axios.get(`http://localhost:3001/api/appointments/${id}`);
+      const response = await axios.get(`https://gestioncitasmedicasapp-production.up.railway.app/api/appointments/${id}`);
       setAppointment(response.data);
     } catch (error) {
       console.error('Error al obtener la cita:', error);
@@ -57,9 +57,9 @@ const AppointmentForm: React.FC = () => {
     e.preventDefault();
     try {
       if (id) {
-        await axios.put(`http://localhost:3001/api/appointments/${id}`, appointment);
+        await axios.put(`https://gestioncitasmedicasapp-production.up.railway.app/api/appointments/${id}`, appointment);
       } else {
-        await axios.post('http://localhost:3001/api/appointments', appointment);
+        await axios.post('https://gestioncitasmedicasapp-production.up.railway.app/api/appointments', appointment);
       }
       navigate('/');
     } catch (error) {

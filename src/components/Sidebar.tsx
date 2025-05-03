@@ -39,7 +39,7 @@ const Sidebar: React.FC<SidebarProps> = ({ setSearch }) => {
 
   const handleNewAppointmentSubmit = async () => {
     try {
-      await axios.post('http://localhost:3001/api/appointments', newAppointment);
+      await axios.post('https://gestioncitasmedicasapp-production.up.railway.app/api/appointments', newAppointment);
       setOpenModal(false);
       setNewAppointment({
         status: 'pendiente'

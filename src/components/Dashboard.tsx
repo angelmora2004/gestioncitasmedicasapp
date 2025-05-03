@@ -12,7 +12,7 @@ const Dashboard: React.FC<DashboardProps> = ({ search }) => {
 
   const fetchCounts = async () => {
     try {
-      const response = await axios.get('http://localhost:3001/api/appointments/counts');
+      const response = await axios.get('https://gestioncitasmedicasapp-production.up.railway.app/api/appointments/counts');
       setCounts(response.data);
     } catch (error) {
       console.error('Error al obtener los conteos de citas:', error);
