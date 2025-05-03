@@ -18,8 +18,7 @@ import {
   TextField,
   Grid,
   MenuItem,
-  CircularProgress,
-  Container
+  CircularProgress
 } from '@mui/material';
 import axios from 'axios';
 import ErrorOutlineIcon from '@mui/icons-material/ErrorOutline';
@@ -96,18 +95,6 @@ const AppointmentList: React.FC<AppointmentListProps> = ({ search, refreshCounts
       console.error('Error al obtener las citas:', error);
     } finally {
       setLoading(false);
-    }
-  };
-
-  const handleStatusChange = async (id: number, newStatus: string) => {
-    try {
-      await axios.patch(`https://gestioncitasmedicasapp-production.up.railway.app/api/appointments/${id}/status`, {
-        status: newStatus
-      });
-      await fetchAppointments();
-      refreshCounts();
-    } catch (error) {
-      console.error('Error al actualizar el estado:', error);
     }
   };
 
